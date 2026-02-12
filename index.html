@@ -3,92 +3,880 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Innovaris Tech</title>
+  <meta name="description" content="Innovaris Tech - Fun IT Solutions & CCTV in Thohoyandou! We fix computers, install cameras, and save your tech!" />
+  <title>Innovaris Tech | 🚀 Fun IT Solutions in Thohoyandou!</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">Innovaris Tech</div>
-       <button class="hamburger" aria-label="Toggle navigation menu">
-         <span class="bar"></span>
-         <span class="bar"></span>
-         <span class="bar"></span>
-       </button>
-       <ul class="nav-links">
-         <li><a href="#home">Home</a></li>
-         <li><a href="#about">About</a></li>
-         <li><a href="#services">Services</a></li>
-         <li><a href="#contact">Contact</a></li>
-         <li><button id="theme-toggle" aria-label="Toggle dark mode">Toggle Theme</button></li>
-       </ul>
-    </nav>
-  </header>
+  <!-- FUN NAVIGATION! 🚀 -->
+  <nav class="navbar navbar-expand-lg fixed-top fun-nav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <div class="brand-icon">
+          <i class="bi bi-robot"></i>
+        </div>
+        <span>Innovaris Tech</span>
+      </a>
+      
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#slideshow">🏠 Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">🛠️ Services</a>
+            <ul class="dropdown-menu" style="background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)); border: 3px solid white; border-radius: 15px; box-shadow: 5px 5px 0px rgba(0,0,0,0.3);">
+              <li><a class="dropdown-item" href="services/cctv-installation.html" style="color: white; font-weight: 600;">📹 CCTV Installation</a></li>
+              <li><a class="dropdown-item" href="services/computer-repair.html" style="color: white; font-weight: 600;">💻 Computer Repair</a></li>
+              <li><a class="dropdown-item" href="services/network-setup.html" style="color: white; font-weight: 600;">🌐 Network Setup</a></li>
+              <li><a class="dropdown-item" href="services/phone-repair.html" style="color: white; font-weight: 600;">📱 Phone Repair</a></li>
+              <li><a class="dropdown-item" href="services/smart-home.html" style="color: white; font-weight: 600;">🏠 Smart Home</a></li>
+              <li><a class="dropdown-item" href="services/it-support.html" style="color: white; font-weight: 600;">🎧 IT Support</a></li>
+              <li><a class="dropdown-item" href="services/mobile-apps.html" style="color: white; font-weight: 600;">📱 Mobile Apps</a></li>
+              <li><a class="dropdown-item" href="services/website-development.html" style="color: white; font-weight: 600;">🌐 Websites</a></li>
+              <li><a class="dropdown-item" href="services/design-services.html" style="color: white; font-weight: 600;">🎨 Design</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">💰 Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">❓ FAQ</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">📞 Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <section id="home" class="hero">
-    <div class="hero-text">
-      <h1>Empowering Technology in Thohoyandou</h1>
-      <p>Your reliable partner for tech support and innovation.</p>
-      <a href="#contact" class="btn">Get in Touch</a>
+  <!-- EPIC SLIDESHOW! 🎬 -->
+  <section id="slideshow" class="slideshow-section">
+    <!-- Floating Shapes -->
+    <div class="floating-shape shape-pink"></div>
+    <div class="floating-shape shape-cyan"></div>
+    <div class="floating-shape shape-green"></div>
+    <div class="floating-shape shape-yellow"></div>
+    
+    <div class="slideshow-container">
+      <!-- SLIDE 1: Computer Repair -->
+      <div class="slide active" data-slide="0">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">⚡ Fast Repairs!</div>
+            <h1>We Fix<br>Computers! 💻</h1>
+            <p class="fun-subtitle">Broken screen? Slow laptop? We got you! 😎</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-lightning-charge-fill me-2"></i>Fix My PC!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-eye me-2"></i>See More
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="computer-char">
+              <div class="screen-face">😰</div>
+              <div class="sweat-drop">💧</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 2: CCTV Installation -->
+      <div class="slide" data-slide="1">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">👀 Security First!</div>
+            <h1>CCTV<br>Cameras! 📹</h1>
+            <p class="fun-subtitle">Watch everything from your phone! 24/7! 🛡️</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-shield-check me-2"></i>Secure My Home!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-camera-video me-2"></i>Learn More
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="camera-char">
+              <div class="camera-body">
+                <div class="camera-lens"></div>
+              </div>
+              <div class="camera-mount"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: Network Setup -->
+      <div class="slide" data-slide="2">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">📶 Super Fast!</div>
+            <h1>WiFi<br>Setup! 🌐</h1>
+            <p class="fun-subtitle">Fast internet everywhere in your house! ⚡</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-wifi me-2"></i>Boost My WiFi!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-router me-2"></i>Details
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="wifi-char">
+              <div class="antenna left"></div>
+              <div class="antenna right"></div>
+              <div class="router-body">
+                <div class="wifi-signal">📶</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 4: Phone Repair -->
+      <div class="slide" data-slide="3">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">📱 Screen Fixed!</div>
+            <h1>Phone<br>Repair! 🔧</h1>
+            <p class="fun-subtitle">Cracked screen? We'll make it like new! ✨</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-phone me-2"></i>Fix My Phone!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-tools me-2"></i>Services
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="phone-char">
+              <div class="phone-screen">😊</div>
+              <div class="phone-crack">✨</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5: Mobile Apps -->
+      <div class="slide" data-slide="4">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">📱 Apps That Rock!</div>
+            <h1>Mobile<br>Apps! 📲</h1>
+            <p class="fun-subtitle">iOS & Android apps that users LOVE! 🚀</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-phone-fill me-2"></i>Build My App!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-rocket me-2"></i>Learn More
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="mobile-char">
+              <div class="mobile-screen">
+                <div class="app-icons">
+                  <div class="app-icon">😊</div>
+                  <div class="app-icon">❤️</div>
+                  <div class="app-icon">🔥</div>
+                  <div class="app-icon">⭐</div>
+                </div>
+              </div>
+              <div class="floating-apps">
+                <div class="floating-app">📱</div>
+                <div class="floating-app">🚀</div>
+                <div class="floating-app">💎</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6: Websites -->
+      <div class="slide" data-slide="5">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">🌐 Web Wizards!</div>
+            <h1>Website<br>Development! 💻</h1>
+            <p class="fun-subtitle">WordPress or custom - we build AMAZING sites! ⚡</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-globe me-2"></i>Build My Site!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-code-slash me-2"></i>See Work
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="website-char">
+              <div class="browser-window">
+                <div class="browser-header">
+                  <div class="browser-dot red"></div>
+                  <div class="browser-dot yellow"></div>
+                  <div class="browser-dot green"></div>
+                </div>
+                <div class="browser-content">
+                  <div class="code-line">&lt;html&gt; 🚀</div>
+                  <div class="code-line">&lt;body&gt; ✨</div>
+                  <div class="code-line">&lt;h1&gt; AWESOME! &lt;/h1&gt;</div>
+                </div>
+              </div>
+              <div class="cursor-blink">|</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 7: Design -->
+      <div class="slide" data-slide="6">
+        <div class="slide-content">
+          <div class="slide-text">
+            <div class="fun-badge">🎨 Creative Magic!</div>
+            <h1>Poster &<br>Flyer Design! 🖼️</h1>
+            <p class="fun-subtitle">Eye-catching designs that grab attention! 🎨</p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="#contact" class="btn btn-fun btn-fun-primary btn-lg">
+                <i class="bi bi-palette me-2"></i>Design Mine!
+              </a>
+              <a href="#services" class="btn btn-fun btn-fun-secondary btn-lg">
+                <i class="bi bi-image me-2"></i>Portfolio
+              </a>
+            </div>
+          </div>
+          <div class="slide-character">
+            <div class="design-char">
+              <div class="palette">
+                <div class="paint-spot pink"></div>
+                <div class="paint-spot cyan"></div>
+                <div class="paint-spot green"></div>
+                <div class="paint-spot yellow"></div>
+                <div class="paint-spot purple"></div>
+              </div>
+              <div class="brush">🖌️</div>
+              <div class="color-splashes">
+                <div class="splash">🎨</div>
+                <div class="splash">✨</div>
+                <div class="splash">🌈</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slideshow Controls -->
+      <div class="slideshow-controls">
+        <button class="control-btn" id="prevSlide">
+          <i class="bi bi-chevron-left"></i>
+        </button>
+        <div class="dots-container">
+          <div class="dot active" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+          <div class="dot" data-index="3"></div>
+          <div class="dot" data-index="4"></div>
+          <div class="dot" data-index="5"></div>
+          <div class="dot" data-index="6"></div>
+        </div>
+        <button class="control-btn" id="nextSlide">
+          <i class="bi bi-chevron-right"></i>
+        </button>
+      </div>
     </div>
   </section>
 
-  <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>Innovaris Tech is a startup tech company focused on delivering IT support, device repair, and future-ready smart home solutions in Thohoyandou, South Africa. We believe in starting small, learning fast, and growing together with our clients.</p>
-  </section>
-
-  <section id="services" class="services">
-    <h2>Our Services</h2>
-
-    <div class="highlight-row">
-      <div class="highlight">
-        <h3>Quick Repairs</h3>
-        <p>Fast turnaround times for hardware and software fixes.</p>
+  <!-- SERVICES SECTION! 🛠️ -->
+  <section id="services" class="section-padding" style="background: linear-gradient(135deg, #1a1a2e 0%, #0f172a 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">🚀 What We Do</span>
+        <h2 class="section-title">Our Super Services!</h2>
+        <p class="section-subtitle">We make tech problems DISAPPEAR! ✨</p>
       </div>
-      <div class="highlight">
-        <h3>Reliable Support</h3>
-        <p>Ongoing tech support you can count on.</p>
+
+      <div class="row g-4">
+        <!-- CCTV -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon">
+              <i class="bi bi-camera-video"></i>
+            </div>
+            <h3>CCTV Installation 📹</h3>
+            <p>Keep an eye on everything! HD cameras, night vision, mobile access!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/cctv-installation.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-shield-check me-1"></i>Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Computer -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #ff006e, #bc13fe);">
+              <i class="bi bi-laptop"></i>
+            </div>
+            <h3>Computer Repair 💻</h3>
+            <p>Fix screens, remove viruses, speed up slow computers!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/computer-repair.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-tools me-1"></i>Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Network -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #fff01f, #ff6b35);">
+              <i class="bi bi-wifi"></i>
+            </div>
+            <h3>Network Setup 🌐</h3>
+            <p>WiFi installation, extenders, security setup!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/network-setup.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-router me-1"></i>Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phone -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #bc13fe, #00ffff);">
+              <i class="bi bi-phone"></i>
+            </div>
+            <h3>Phone Repair 📱</h3>
+            <p>Screen replacement, battery, charging ports!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/phone-repair.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-magic me-1"></i>Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Smart Home -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #39ff14, #00ffff);">
+              <i class="bi bi-house-door"></i>
+            </div>
+            <h3>Smart Home 🏠</h3>
+            <p>Smart lights, automated locks, voice control!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/smart-home.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-lightbulb me-1"></i>Get Quote
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- IT Support -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #ff6b35, #fff01f);">
+              <i class="bi bi-headset"></i>
+            </div>
+            <h3>IT Support 🎧</h3>
+            <p>Remote help, on-site visits, maintenance!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/it-support.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-chat-dots me-1"></i>Get Help
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Apps -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #ff006e, #bc13fe);">
+              <i class="bi bi-phone-fill"></i>
+            </div>
+            <h3>Mobile Apps 📱</h3>
+            <p>iOS & Android apps! Native, user-friendly, powerful!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/mobile-apps.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-rocket me-1"></i>Build App
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Website Development -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #00ffff, #3b82f6);">
+              <i class="bi bi-globe"></i>
+            </div>
+            <h3>Websites 🌐</h3>
+            <p>WordPress & custom! Responsive, stunning, fast!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/website-development.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-code-slash me-1"></i>Get Site
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Design -->
+        <div class="col-md-6 col-lg-4">
+          <div class="fun-card h-100 text-center animate-on-scroll">
+            <div class="fun-card-icon" style="background: linear-gradient(135deg, #f59e0b, #ec4899, #8b5cf6, #06b6d4);">
+              <i class="bi bi-palette"></i>
+            </div>
+            <h3>Design 🎨</h3>
+            <p>Posters, flyers, branding! Eye-catching designs!</p>
+            <div class="d-flex gap-2 mt-3">
+              <a href="services/design-services.html" class="btn btn-fun btn-fun-secondary flex-fill">
+                <i class="bi bi-info-circle me-1"></i>Learn More
+              </a>
+              <a href="#contact" class="btn btn-fun btn-fun-primary flex-fill">
+                <i class="bi bi-brush me-1"></i>Get Design
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="highlight large">
-      <h3>We're building the future of smart living — one home at a time.</h3>
-    </div>
+  <!-- PRICING SECTION! 💰 -->
+  <section id="pricing" class="section-padding" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">💎 Fair Prices</span>
+        <h2 class="section-title">Super Pricing!</h2>
+        <p class="section-subtitle">No hidden fees! Just great value! 🎉</p>
+      </div>
 
-    <div class="service-list">
-      <div class="service">
-        <h3>PC Troubleshooting</h3>
-        <p>Diagnosing and repairing computer issues efficiently.</p>
-      </div>
-      <div class="service">
-        <h3>Software & Network Setup</h3>
-        <p>Installing and configuring essential software and home networks.</p>
-      </div>
-      <div class="service">
-        <h3>Home Automation (Coming Soon)</h3>
-        <p>Transforming living spaces with smart technology.</p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card animate-on-scroll">
+            <h3>💻 Computer Repair</h3>
+            <div class="price-tag">From R350</div>
+            <ul>
+              <li><span>Screen Fix</span> <span>From R800</span></li>
+              <li><span>Virus Removal</span> <span>R350</span></li>
+              <li><span>Battery</span> <span>From R400</span></li>
+              <li><span>Software</span> <span>R200</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-secondary w-100">
+              <i class="bi bi-lightning-charge me-2"></i>Book Now!
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card popular animate-on-scroll">
+            <h3>📹 CCTV Package</h3>
+            <div class="price-tag">From R2,500</div>
+            <ul>
+              <li><span>4 HD Cameras</span> <span>✓</span></li>
+              <li><span>Night Vision</span> <span>✓</span></li>
+              <li><span>Mobile Access</span> <span>✓</span></li>
+              <li><span>Installation</span> <span>✓</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-primary w-100">
+              <i class="bi bi-shield-check me-2"></i>Secure Home!
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card animate-on-scroll">
+            <h3>🌐 Network Setup</h3>
+            <div class="price-tag">From R500</div>
+            <ul>
+              <li><span>WiFi Setup</span> <span>R500</span></li>
+              <li><span>Extenders</span> <span>R300/ea</span></li>
+              <li><span>Cabling</span> <span>R150/m</span></li>
+              <li><span>Security</span> <span>R400</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-secondary w-100">
+              <i class="bi bi-wifi me-2"></i>Connect!
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card animate-on-scroll">
+            <h3>📱 Mobile Apps</h3>
+            <div class="price-tag">From R8,000</div>
+            <ul>
+              <li><span>iOS Development</span> <span>✓</span></li>
+              <li><span>Android Development</span> <span>✓</span></li>
+              <li><span>UI/UX Design</span> <span>✓</span></li>
+              <li><span>App Store Upload</span> <span>✓</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-secondary w-100">
+              <i class="bi bi-phone-fill me-2"></i>Build App!
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card animate-on-scroll">
+            <h3>🌐 Websites</h3>
+            <div class="price-tag">From R3,500</div>
+            <ul>
+              <li><span>WordPress Site</span> <span>From R3,500</span></li>
+              <li><span>Custom Website</span> <span>From R8,000</span></li>
+              <li><span>E-commerce</span> <span>From R12,000</span></li>
+              <li><span>Responsive Design</span> <span>✓</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-secondary w-100">
+              <i class="bi bi-globe me-2"></i>Get Site!
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="price-card animate-on-scroll">
+            <h3>🎨 Design Services</h3>
+            <div class="price-tag">From R500</div>
+            <ul>
+              <li><span>Poster Design</span> <span>From R500</span></li>
+              <li><span>Flyer Design</span> <span>From R400</span></li>
+              <li><span>Business Cards</span> <span>From R600</span></li>
+              <li><span>Logo Design</span> <span>From R1,500</span></li>
+            </ul>
+            <a href="#contact" class="btn btn-fun btn-fun-secondary w-100">
+              <i class="bi bi-palette me-2"></i>Design Now!
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" placeholder="Your Message" required></textarea>
-       <button type="submit" id="submit-btn">Send Message</button>
-    </form>
-    <div id="toast" class="toast"></div>
+  <!-- FAQ SECTION! ❓ -->
+  <section id="faq" class="section-padding" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">❓ Questions</span>
+        <h2 class="section-title">FAQ Time!</h2>
+        <p class="section-subtitle">Got questions? We got answers! 🤔</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item fun-accordion animate-on-scroll">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  <i class="bi bi-clock me-2" style="color: var(--neon-cyan);"></i>
+                  How long do repairs take? ⏰
+                </button>
+              </h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Most repairs are done in 24-48 hours! 🚀 Super fast so you can get back to business!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item fun-accordion animate-on-scroll">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  <i class="bi bi-shield-check me-2" style="color: var(--neon-cyan);"></i>
+                  Do you have warranty? 🛡️
+                </button>
+              </h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  YES! 30-day warranty on all repairs! If something goes wrong, we fix it FREE! 💪
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item fun-accordion animate-on-scroll">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  <i class="bi bi-phone me-2" style="color: var(--neon-cyan);"></i>
+                  Can I watch my CCTV on phone? 📱
+                </button>
+              </h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  ABSOLUTELY! 📹 We set up mobile access so you can watch from anywhere, anytime!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item fun-accordion animate-on-scroll">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  <i class="bi bi-geo-alt me-2" style="color: var(--neon-cyan);"></i>
+                  Do you come to my place? 🚗
+                </button>
+              </h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  YES! We do on-site visits for CCTV and networks! 🏠 Based in Thohoyandou!
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item fun-accordion animate-on-scroll">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  <i class="bi bi-credit-card me-2" style="color: var(--neon-cyan);"></i>
+                  How do I pay? 💳
+                </button>
+              </h2>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                  Cash, EFT, Instant EFT! 💰 We keep it simple and easy for you!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Innovaris Tech. All rights reserved.</p>
+  <!-- CONTACT SECTION! 📞 -->
+  <section id="contact" class="section-padding" style="background: linear-gradient(135deg, #0f172a 0%, #1a1a2e 100%);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-badge">📞 Let's Talk!</span>
+        <h2 class="section-title">Contact Us!</h2>
+        <p class="section-subtitle">Ready to fix your tech? Let's go! 🚀</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="fun-card h-100 animate-on-scroll">
+            <h3 class="mb-4" style="color: var(--neon-purple);">📍 Find Us</h3>
+            <div class="d-flex flex-column gap-4">
+              <div class="d-flex align-items-center gap-3">
+                <div style="width: 50px; height: 50px; background: var(--neon-pink); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white;">
+                  <i class="bi bi-geo-alt fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0" style="color: #1a202c;">Location</h5>
+                  <p class="mb-0" style="color: #4a5568; font-weight: 600;">Thohoyandou, Limpopo</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <div style="width: 50px; height: 50px; background: var(--neon-cyan); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white;">
+                  <i class="bi bi-telephone fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0" style="color: #1a202c;">Phone</h5>
+                  <p class="mb-0" style="color: #4a5568; font-weight: 600;">+27 81 234 5678</p>
+                </div>
+              </div>
+              <div class="d-flex align-items-center gap-3">
+                <div style="width: 50px; height: 50px; background: var(--neon-green); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 3px solid white;">
+                  <i class="bi bi-clock fs-4"></i>
+                </div>
+                <div>
+                  <h5 class="mb-0" style="color: #1a202c;">Hours</h5>
+                  <p class="mb-0" style="color: #4a5568; font-weight: 600;">Mon-Sat: 8AM-6PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+          <div class="fun-card animate-on-scroll">
+            <h3 class="mb-4" style="color: var(--neon-purple);">📧 Send Message!</h3>
+            <form id="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <div class="fun-input">
+                    <label style="color: #4a5568; text-shadow: none;">Your Name *</label>
+                    <input type="text" class="form-control" id="name" placeholder="What's your name?" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="fun-input">
+                    <label style="color: #4a5568; text-shadow: none;">Your Email *</label>
+                    <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="fun-input">
+                    <label style="color: #4a5568; text-shadow: none;">Phone</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="+27 XX XXX XXXX">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="fun-input">
+                    <label style="color: #4a5568; text-shadow: none;">Service Needed</label>
+                    <select class="form-select" id="service">
+                      <option value="">What do you need?</option>
+                      <option value="cctv">📹 CCTV Installation</option>
+                      <option value="computer">💻 Computer Repair</option>
+                      <option value="network">🌐 Network Setup</option>
+                      <option value="phone">📱 Phone Repair</option>
+                      <option value="smarthome">🏠 Smart Home</option>
+                      <option value="support">🎧 IT Support</option>
+                      <option value="mobileapp">📱 Mobile App Development</option>
+                      <option value="website">🌐 Website Development</option>
+                      <option value="design">🎨 Poster/Flyer Design</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="fun-input">
+                    <label style="color: #4a5568; text-shadow: none;">Tell Us More! *</label>
+                    <textarea class="form-control" id="message" rows="4" placeholder="What's the problem? Tell us everything!" required></textarea>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-fun btn-fun-primary btn-lg w-100" id="submit-btn">
+                    <i class="bi bi-send-fill me-2"></i>Send Message! 🚀
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUN FOOTER! 🎉 -->
+  <footer class="fun-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="brand-icon" style="width: 60px; height: 60px;">
+              <i class="bi bi-robot fs-3"></i>
+            </div>
+            <span style="font-family: 'Fredoka One', cursive; font-size: 1.75rem; color: white; text-shadow: 3px 3px 0px var(--neon-cyan);">Innovaris Tech</span>
+          </div>
+          <p>Your friendly tech helpers in Thohoyandou! 🚀 We fix, install, and make your tech work!</p>
+          <div class="d-flex gap-3 mt-3">
+            <a href="#" class="social-fun"><i class="bi bi-facebook"></i></a>
+            <a href="https://wa.me/27812345678" class="social-fun"><i class="bi bi-whatsapp"></i></a>
+            <a href="#" class="social-fun"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="col-6 col-lg-2">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#slideshow">🏠 Home</a></li>
+            <li class="mb-2"><a href="#services">🛠️ Services</a></li>
+            <li class="mb-2"><a href="#pricing">💰 Pricing</a></li>
+            <li class="mb-2"><a href="#contact">📞 Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h5>Services</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#services">📹 CCTV</a></li>
+            <li class="mb-2"><a href="#services">💻 Computers</a></li>
+            <li class="mb-2"><a href="#services">🌐 Network</a></li>
+            <li class="mb-2"><a href="#services">📱 Phones</a></li>
+            <li class="mb-2"><a href="#services">📱 Mobile Apps</a></li>
+            <li class="mb-2"><a href="#services">🌐 Websites</a></li>
+            <li class="mb-2"><a href="#services">🎨 Design</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-4">
+          <h5>Contact Info</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Thohoyandou, Limpopo</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+27 81 234 5678</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@innovaristech.co.za</li>
+            <li class="mb-2"><i class="bi bi-clock me-2"></i>Mon-Sat: 8AM-6PM</li>
+          </ul>
+        </div>
+      </div>
+      
+      <hr class="border-light my-4 opacity-25">
+      
+      <div class="row align-items-center">
+        <div class="col-md-6 text-center text-md-start">
+          <p class="mb-0">&copy; 2025 Innovaris Tech. All rights reserved.</p>
+        </div>
+        <div class="col-md-6 text-center text-md-end">
+          <p class="mb-0">Made with 💖 in Thohoyandou</p>
+        </div>
+      </div>
+    </div>
   </footer>
 
+  <!-- ROBOT MASCOT! 🤖 -->
+  <div class="mascot-container" id="mascot">
+    <div class="click-hint">👆 Click me!</div>
+    <div class="robot-mascot" onclick="mascotTalk()">
+      <div class="robot-head">
+        <div class="robot-antenna"></div>
+        <div class="robot-eye left"></div>
+        <div class="robot-eye right"></div>
+      </div>
+      <div class="robot-body">
+        <div class="robot-screen">💻</div>
+      </div>
+    </div>
+    <div class="mascot-speech" id="mascotSpeech">
+      Hi! Need help? 🤖
+    </div>
+  </div>
 
+  <!-- WHATSAPP FLOAT! 💬 -->
+  <a href="https://wa.me/27812345678" class="whatsapp-float" target="_blank" title="Chat on WhatsApp!">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+
+  <!-- TOAST NOTIFICATION! -->
+  <div id="toast" style="position: fixed; top: 100px; right: 20px; padding: 1.5rem 2rem; border-radius: 20px; color: white; font-weight: bold; display: none; z-index: 10000; max-width: 400px; background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)); border: 4px solid white; box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3); font-family: 'Fredoka One', cursive; animation: slideIn 0.5s ease;"></div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <!-- Custom JS -->
   <script src="script.js"></script>
 </body>
 </html>
