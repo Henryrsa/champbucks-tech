@@ -1,5 +1,5 @@
 /* ============================
-   Innovaris Tech - GOOFY CARTOON THEME! 🎨
+   Champbucks - GOOFY CARTOON THEME! 🎨
    Bright, Fun, and Attention-Grabbing!
    ============================ */
 
@@ -1664,6 +1664,22 @@ h1, h2, h3, h4, h5, h6 {
   .phone-char {
     transform: scale(0.8);
   }
+}
+
+/* Admin Link Style */
+.admin-link {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 15px;
+}
+
+.admin-link:hover {
+  color: var(--neon-cyan);
+  background: rgba(0, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 /* Selection style */

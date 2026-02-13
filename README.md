@@ -1,4 +1,4 @@
-# 🎉 Innovaris Tech - GOOFY CARTOON WEBSITE! 🎉
+# 🎉 Champbucks - GOOFY CARTOON WEBSITE! 🎉
 
 **Warning: This website is EXTREMELY FUN and ATTENTION-GRABBING!** 🚀
 
@@ -149,7 +149,7 @@ Works on all devices:
 
 ## 📞 Contact
 
-**Innovaris Tech**
+**Champbucks**
 - 📍 Thohoyandou, Limpopo
 - 📞 +27 81 234 5678
 - 🕐 Mon-Sat: 8AM-6PM

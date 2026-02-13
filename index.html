@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Innovaris Tech - Fun IT Solutions & CCTV in Thohoyandou! We fix computers, install cameras, and save your tech!" />
-  <title>Innovaris Tech | 🚀 Fun IT Solutions in Thohoyandou!</title>
+  <meta name="description" content="Champbucks Tech - Fun IT Solutions & CCTV in Thohoyandou! We fix computers, install cameras, and save your tech!" />
+  <title>Champbucks Tech | 🚀 Fun IT Solutions in Thohoyandou!</title>
   
   <!-- Bootstrap 5 CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +21,7 @@
         <div class="brand-icon">
           <i class="bi bi-robot"></i>
         </div>
-        <span>Innovaris Tech</span>
+        <span>Champbucks</span>
       </a>
       
       <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -705,7 +705,7 @@
                 </div>
                 <div>
                   <h5 class="mb-0" style="color: #1a202c;">Phone</h5>
-                  <p class="mb-0" style="color: #4a5568; font-weight: 600;">+27 81 234 5678</p>
+                  <p class="mb-0" style="color: #4a5568; font-weight: 600;">+27 76 580 7777</p>
                 </div>
               </div>
               <div class="d-flex align-items-center gap-3">
@@ -724,30 +724,30 @@
         <div class="col-lg-8">
           <div class="fun-card animate-on-scroll">
             <h3 class="mb-4" style="color: var(--neon-purple);">📧 Send Message!</h3>
-            <form id="contact-form">
+            <form id="contact-form" novalidate>
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="fun-input">
-                    <label style="color: #4a5568; text-shadow: none;">Your Name *</label>
-                    <input type="text" class="form-control" id="name" placeholder="What's your name?" required>
+                    <label for="name" style="color: #4a5568; text-shadow: none;">Your Name *</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="What's your name?" required aria-required="true">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="fun-input">
-                    <label style="color: #4a5568; text-shadow: none;">Your Email *</label>
-                    <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+                    <label for="email" style="color: #4a5568; text-shadow: none;">Your Email *</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="your@email.com" required aria-required="true">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="fun-input">
-                    <label style="color: #4a5568; text-shadow: none;">Phone</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="+27 XX XXX XXXX">
+                    <label for="phone" style="color: #4a5568; text-shadow: none;">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+27 XX XXX XXXX" pattern="^(\+27|0)[0-9]{9}$" title="South African phone format: +27 XX XXX XXXX or 0X XXX XXXX">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="fun-input">
-                    <label style="color: #4a5568; text-shadow: none;">Service Needed</label>
-                    <select class="form-select" id="service">
+                    <label for="service" style="color: #4a5568; text-shadow: none;">Service Needed</label>
+                    <select class="form-select" id="service" name="service">
                       <option value="">What do you need?</option>
                       <option value="cctv">📹 CCTV Installation</option>
                       <option value="computer">💻 Computer Repair</option>
@@ -763,8 +763,8 @@
                 </div>
                 <div class="col-12">
                   <div class="fun-input">
-                    <label style="color: #4a5568; text-shadow: none;">Tell Us More! *</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="What's the problem? Tell us everything!" required></textarea>
+                    <label for="message" style="color: #4a5568; text-shadow: none;">Tell Us More! *</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="What's the problem? Tell us everything!" required aria-required="true"></textarea>
                   </div>
                 </div>
                 <div class="col-12">
@@ -789,7 +789,7 @@
             <div class="brand-icon" style="width: 60px; height: 60px;">
               <i class="bi bi-robot fs-3"></i>
             </div>
-            <span style="font-family: 'Fredoka One', cursive; font-size: 1.75rem; color: white; text-shadow: 3px 3px 0px var(--neon-cyan);">Innovaris Tech</span>
+            <span style="font-family: 'Fredoka One', cursive; font-size: 1.75rem; color: white; text-shadow: 3px 3px 0px var(--neon-cyan);">Champbucks Tech</span>
           </div>
           <p>Your friendly tech helpers in Thohoyandou! 🚀 We fix, install, and make your tech work!</p>
           <div class="d-flex gap-3 mt-3">
@@ -826,8 +826,8 @@
           <h5>Contact Info</h5>
           <ul class="list-unstyled">
             <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Thohoyandou, Limpopo</li>
-            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+27 81 234 5678</li>
-            <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@innovaristech.co.za</li>
+            <li class="mb-2"><i class="bi bi-telephone me-2"></i>+27 76 580 7777</li>
+            <li class="mb-2"><i class="bi bi-envelope me-2"></i>info@Champbuckstech.co.za</li>
             <li class="mb-2"><i class="bi bi-clock me-2"></i>Mon-Sat: 8AM-6PM</li>
           </ul>
         </div>
@@ -837,10 +837,17 @@
       
       <div class="row align-items-center">
         <div class="col-md-6 text-center text-md-start">
-          <p class="mb-0">&copy; 2025 Innovaris Tech. All rights reserved.</p>
+          <p class="mb-0">&copy; 2025 Champbucks Tech. All rights reserved.</p>
         </div>
         <div class="col-md-6 text-center text-md-end">
-          <p class="mb-0">Made with 💖 in Thohoyandou</p>
+          <p class="mb-0">
+            Made with 💖 in Thohoyandou
+            <small class="ms-3">
+              <a href="admin/" class="admin-link" title="Admin Access">
+                <i class="bi bi-gear"></i>
+              </a>
+            </small>
+          </p>
         </div>
       </div>
     </div>
@@ -871,6 +878,66 @@
 
   <!-- TOAST NOTIFICATION! -->
   <div id="toast" style="position: fixed; top: 100px; right: 20px; padding: 1.5rem 2rem; border-radius: 20px; color: white; font-weight: bold; display: none; z-index: 10000; max-width: 400px; background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink)); border: 4px solid white; box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3); font-family: 'Fredoka One', cursive; animation: slideIn 0.5s ease;"></div>
+  
+  <!-- Real-time Data Sync -->
+  <script>
+    // Cross-tab communication for real-time message updates
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'champbucks_submissions') {
+        console.log('🔄 Main site: New message submitted to admin dashboard');
+        // Trigger visual notification
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: linear-gradient(135deg, #ff006e, #bc13fe);
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 15px;
+          border: 3px solid white;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+          font-family: 'Fredoka One', cursive;
+          z-index: 10001;
+          animation: slideInRight 0.5s ease;
+          max-width: 300px;
+        `;
+        notification.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 0.5rem;">
+            <i class="bi bi-envelope-fill" style="font-size: 1.2rem;"></i>
+            <span>New message received! 🎉</span>
+          </div>
+        `;
+        document.body.appendChild(notification);
+        
+        setTimeout(() => {
+          notification.style.animation = 'slideOutRight 0.5s ease';
+          setTimeout(() => {
+            if (notification.parentNode) {
+              document.body.removeChild(notification);
+            }
+          }, 500);
+        }, 3000);
+      }
+    });
+    
+    // Create notification styles if they don't exist
+    if (!document.getElementById('notificationStyles')) {
+      const style = document.createElement('style');
+      style.id = 'notificationStyles';
+      style.textContent = `
+        @keyframes slideInRight {
+          0% { transform: translateX(100%); opacity: 0; }
+          100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOutRight {
+          0% { transform: translateX(0); opacity: 1; }
+          100% { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+    }
+  </script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

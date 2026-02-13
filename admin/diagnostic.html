@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Flow Diagnostics | Champbucks Admin</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  
+  <style>
+    body {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: white;
+      font-family: 'Comic Neue', cursive;
+      padding: 2rem;
+    }
+    
+    .diagnostic-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-left: 5px solid #00ffff;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .status-indicator {
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+      text-align: center;
+      margin: 0.5rem 0;
+    }
+    
+    .status-success {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+    }
+    
+    .status-error {
+      background: linear-gradient(135deg, #ef4444, #dc2626);
+      color: white;
+    }
+    
+    .status-warning {
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #111827;
+    }
+    
+    .status-info {
+      background: linear-gradient(135deg, #3b82f6, #1e40af);
+      color: white;
+    }
+    
+    .data-item {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 0.5rem 0;
+      font-family: 'Courier New', monospace;
+      border: 1px solid #00ffff;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    
+    .key-highlight {
+      color: #00ffff;
+      background: rgba(0,255,255,0.1);
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+    
+    .action-buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .btn-diagnostic {
+      background: linear-gradient(135deg, #bc13fe, #ff006e);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-family: 'Fredoka One', cursive;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-diagnostic:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    .console-output {
+      background: #1a1a2e;
+      color: #00ff00;
+      border-radius: 10px;
+      padding: 1rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.875rem;
+      max-height: 300px;
+      overflow-y: auto;
+      border: 1px solid #00ffff;
+      margin-top: 1rem;
+    }
+    
+    .refresh-btn {
+      background: linear-gradient(135deg, #39ff14, #00ffff);
+      color: #1a1a2e;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 10px;
+      font-family: 'Fredoka One', cursive;
+      cursor: pointer;
+      margin-left: auto;
+    }
+    
+    .refresh-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 3px 10px rgba(0,255,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">
+      <i class="bi bi-bug-fill me-2"></i>
+      Data Flow Diagnostics
+    </h1>
+    
+    <div class="diagnostic-card">
+      <h3><i class="bi bi-shield-check me-2"></i> Storage Analysis</h3>
+      
+      <div class="status-indicator status-info" id="localStorageStatus">
+        <i class="bi bi-database me-2"></i> Checking localStorage...
+      </div>
+      
+      <div class="data-item" id="localStorageData">
+        Loading localStorage data...
+      </div>
+    </div>
+    
+    <div class="diagnostic-card">
+      <h3><i class="bi bi-search me-2"></i> Data Format Analysis</h3>
+      
+      <div class="status-indicator status-warning" id="formatStatus">
+        <i class="bi bi-file-text me-2"></i> Analyzing message formats...
+      </div>
+      
+      <div class="data-item" id="formatData">
+        Loading format analysis...
+      </div>
+    </div>
+    
+    <div class="diagnostic-card">
+      <h3><i class="bi bi-plug me-2"></i> Event System Status</h3>
+      
+      <div class="status-indicator status-info" id="eventStatus">
+        <i class="bi bi-lightning me-2"></i> Testing storage events...
+      </div>
+      
+      <div class="data-item" id="eventData">
+        Loading event system status...
+      </div>
+    </div>
+    
+    <div class="diagnostic-card">
+      <h3><i class="bi bi-clock-history me-2"></i> Message Timeline</h3>
+      
+      <div class="status-indicator status-info" id="timelineStatus">
+        <i class="bi bi-list-ul me-2"></i> Analyzing message timeline...
+      </div>
+      
+      <div class="data-item" id="timelineData">
+        Loading message timeline...
+      </div>
+    </div>
+    
+    <div class="diagnostic-card">
+      <h3><i class="bi bi-journal-code me-2"></i> Console Output</h3>
+      
+      <div class="console-output" id="consoleOutput">
+        Awaiting diagnostic data...
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <button class="btn-diagnostic" onclick="runDiagnostics()">
+        <i class="bi bi-search me-2"></i> Run Diagnostics
+      </button>
+      
+      <button class="btn-diagnostic" onclick="testStorageEvent()">
+        <i class="bi bi-lightning me-2"></i> Test Storage Event
+      </button>
+      
+      <button class="btn-diagnostic" onclick="createTestMessage()">
+        <i class="bi bi-plus-circle me-2"></i> Create Test Message
+      </button>
+      
+      <button class="btn-diagnostic" onclick="clearAllData()">
+        <i class="bi bi-trash me-2"></i> Clear All Data
+      </button>
+      
+      <button class="btn-diagnostic" onclick="refreshDiagnostics()">
+        <i class="bi bi-arrow-clockwise me-2"></i> Refresh All
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Console logger for diagnostics
+    function log(message, type = 'info') {
+      const output = document.getElementById('consoleOutput');
+      if (output) {
+        const timestamp = new Date().toLocaleTimeString();
+        output.textContent = `[${timestamp}] ${message}\n`;
+        output.scrollTop = output.scrollHeight;
+      }
+      console.log(message);
+    }
+    
+    // Check localStorage availability and content
+    function checkLocalStorage() {
+      try {
+        const isAvailable = typeof Storage !== 'undefined';
+        const keys = isAvailable ? Object.keys(localStorage) : [];
+        const mainSiteData = localStorage.getItem('champbucks_submissions');
+        const adminSessionData = localStorage.getItem('champbucks_admin_session');
+        
+        const statusEl = document.getElementById('localStorageStatus');
+        const dataEl = document.getElementById('localStorageData');
+        
+        if (isAvailable && keys.length > 0) {
+          statusEl.className = 'status-indicator status-success';
+          statusEl.innerHTML = `
+            <i class="bi bi-check-circle me-2"></i> 
+            localStorage Available (${keys.length} keys)
+          `;
+          
+          dataEl.innerHTML = `
+            <strong>Main Site Messages (champbucks_submissions):</strong><br>
+            <div class="key-highlight">${mainSiteData ? 'Present (' + mainSiteData.length + ' chars)' : 'Not Present'}</div><br><br>
+            
+            <strong>Admin Session (champbucks_admin_session):</strong><br>
+            <div class="key-highlight">${adminSessionData ? 'Present (' + adminSessionData.length + ' chars)' : 'Not Present'}</div><br><br>
+            
+            <strong>All Storage Keys:</strong><br>
+            ${keys.map(key => `<span class="key-highlight">${key}</span>`).join(', ')}
+          `;
+        } else {
+          statusEl.className = 'status-indicator status-error';
+          statusEl.innerHTML = `
+            <i class="bi bi-x-circle me-2"></i> 
+            localStorage NOT Available
+          `;
+          
+          dataEl.innerHTML = 'LocalStorage is not accessible or empty';
+        }
+        
+        log(`LocalStorage Check: ${isAvailable ? 'Available' : 'Not Available'}`, isAvailable ? 'success' : 'error');
+        log(`Keys found: ${keys.join(', ')}`);
+        log(`Main site data: ${mainSiteData ? 'Present' : 'Not Present'}`);
+        log(`Admin session: ${adminSessionData ? 'Present' : 'Not Present'}`);
+        
+        return {
+          available: isAvailable,
+          keys: keys,
+          mainSiteData: mainSiteData,
+          adminSession: adminSessionData
+        };
+      } catch (error) {
+        log(`LocalStorage Error: ${error.message}`, 'error');
+        return { available: false, error: error.message };
+      }
+    }
+    
+    // Analyze message format
+    function analyzeMessageFormat() {
+      try {
+        const mainSiteData = localStorage.getItem('champbucks_submissions');
+        const formatStatus = document.getElementById('formatStatus');
+        const formatData = document.getElementById('formatData');
+        
+        if (!mainSiteData) {
+          formatStatus.className = 'status-indicator status-warning';
+          formatStatus.innerHTML = `
+            <i class="bi bi-exclamation-triangle me-2"></i> 
+            No Messages Found
+          `;
+          formatData.innerHTML = 'No messages available to analyze format';
+          return;
+        }
+        
+        let messages;
+        try {
+          messages = JSON.parse(mainSiteData);
+        } catch (parseError) {
+          formatStatus.className = 'status-indicator status-error';
+          formatStatus.innerHTML = `
+            <i class="bi bi-x-circle me-2"></i> 
+            Invalid JSON Format
+          `;
+          formatData.innerHTML = `Parse Error: ${parseError.message}`;
+          return;
+        }
+        
+        if (!Array.isArray(messages)) {
+          formatStatus.className = 'status-indicator status-error';
+          formatStatus.innerHTML = `
+            <i class="bi bi-x-circle me-2"></i> 
+            Messages Not an Array
+          `;
+          formatData.innerHTML = `Data type: ${typeof messages} (Expected: Array)`;
+          return;
+        }
+        
+        // Analyze first message structure
+        const firstMessage = messages[0];
+        if (firstMessage) {
+          const requiredFields = ['name', 'email', 'message', 'timestamp'];
+          const hasRequiredFields = requiredFields.every(field => firstMessage.hasOwnProperty(field));
+          
+          const adminExpectedFields = ['id', 'status', 'starred'];
+          const hasAdminFields = adminExpectedFields.every(field => firstMessage.hasOwnProperty(field));
+          
+          formatStatus.className = hasRequiredFields && hasAdminFields ? 'status-indicator status-success' : 'status-indicator status-warning';
+          formatStatus.innerHTML = hasRequiredFields && hasAdminFields ? 
+            '<i class="bi bi-check-circle me-2"></i> Format Valid' : 
+            '<i class="bi bi-exclamation-triangle me-2"></i> Format Issues Found';
+          
+          formatData.innerHTML = `
+            <strong>Message Structure Analysis:</strong><br>
+            <div class="key-highlight">Required Fields:</div> ${requiredFields.join(', ')}<br>
+            <div class="key-highlight">Admin Fields:</div> ${adminExpectedFields.join(', ')}<br>
+            <div class="key-highlight">Has Required:</div> ${hasRequiredFields ? '✅ Yes' : '❌ No'}<br>
+            <div class="key-highlight">Has Admin:</div> ${hasAdminFields ? '✅ Yes' : '❌ No'}<br><br>
+            
+            <strong>First Message Sample:</strong><br>
+            <div class="data-item">${JSON.stringify(firstMessage, null, 2)}</div>
+          `;
+          
+          log(`Format Analysis: ${hasRequiredFields && hasAdminFields ? 'Valid' : 'Issues Found'}`);
+        }
+      } catch (error) {
+        formatStatus.className = 'status-indicator status-error';
+        formatStatus.innerHTML = `Analysis Error: ${error.message}`;
+        log(`Format Analysis Error: ${error.message}`, 'error');
+      }
+    }
+    
+    // Test storage events
+    function testStorageEvent() {
+      log('Testing Storage Event System...');
+      
+      try {
+        // Create test storage event
+        const testEvent = new StorageEvent('storage', {
+          key: 'test_storage_event',
+          newValue: 'test_value_' + Date.now()
+        });
+        
+        // Dispatch event
+        window.dispatchEvent(testEvent);
+        
+        setTimeout(() => {
+          log('Storage event dispatched successfully');
+        }, 100);
+        
+        // Check event status
+        const eventStatus = document.getElementById('eventStatus');
+        const eventData = document.getElementById('eventData');
+        
+        eventStatus.className = 'status-indicator status-info';
+        eventData.innerHTML = `
+          Test storage event dispatched<br>
+          Key: <span class="key-highlight">test_storage_event</span><br>
+          New Value: <span class="key-highlight">test_value_${Date.now()}</span><br>
+          Event should trigger admin auto-refresh if system is working
+        `;
+        
+        log('Storage Event Test Completed');
+      } catch (error) {
+        log(`Storage Event Test Error: ${error.message}`, 'error');
+      }
+    }
+    
+    // Create test message
+    function createTestMessage() {
+      log('Creating Test Message...');
+      
+      try {
+        const testMessage = {
+          id: Date.now(),
+          name: 'Test User',
+          email: 'test@diagnostics.com',
+          phone: '+27 12 345 6789',
+          service: 'diagnostic',
+          message: 'This is a test message created by diagnostic tool',
+          timestamp: new Date().toISOString(),
+          status: 'unread',
+          starred: false
+        };
+        
+        const messages = JSON.parse(localStorage.getItem('champbucks_submissions') || '[]');
+        messages.push(testMessage);
+        localStorage.setItem('champbucks_submissions', JSON.stringify(messages));
+        
+        log('Test message created successfully');
+        setTimeout(() => {
+          checkLocalStorage();
+          analyzeMessageFormat();
+        }, 500);
+        
+      } catch (error) {
+        log(`Test Message Creation Error: ${error.message}`, 'error');
+      }
+    }
+    
+    // Clear all data
+    function clearAllData() {
+      log('Clearing All Data...');
+      
+      try {
+        localStorage.clear();
+        log('All localStorage cleared');
+        
+        setTimeout(() => {
+          checkLocalStorage();
+          analyzeMessageFormat();
+        }, 500);
+        
+      } catch (error) {
+        log(`Clear Data Error: ${error.message}`, 'error');
+      }
+    }
+    
+    // Refresh all diagnostics
+    function refreshDiagnostics() {
+      log('Refreshing All Diagnostics...');
+      checkLocalStorage();
+      analyzeMessageFormat();
+      log('Diagnostics refreshed');
+    }
+    
+    // Main diagnostics function
+    function runDiagnostics() {
+      log('=== STARTING COMPREHENSIVE DIAGNOSTICS ===');
+      log('Timestamp: ' + new Date().toISOString());
+      
+      // Step 1: Storage Analysis
+      checkLocalStorage();
+      
+      // Step 2: Format Analysis
+      analyzeMessageFormat();
+      
+      // Step 3: Summary
+      const storage = checkLocalStorage();
+      if (storage.available && storage.mainSiteData) {
+        const messages = JSON.parse(storage.mainSiteData);
+        const messageCount = messages.length;
+        
+        log(`=== DIAGNOSTIC SUMMARY ===`);
+        log(`Total Messages: ${messageCount}`);
+        log(`Storage Available: ${storage.available}`);
+        log(`Storage Keys: ${storage.keys.join(', ')}`);
+        
+        if (messageCount > 0) {
+          log('=== RECOMMENDATIONS ===');
+          log('✅ Main site and admin dashboard appear to be connected');
+          log('✅ Storage events should trigger admin auto-refresh');
+          log('✅ Test admin dashboard by submitting new message from main site');
+        } else {
+          log('=== ISSUES IDENTIFIED ===');
+          log('❌ No messages found in localStorage');
+          log('❌ Check if main site form is properly storing data');
+          log('❌ Verify localStorage key: "champbucks_submissions"');
+          log('❌ Test by creating sample message using diagnostic tool');
+        }
+        
+        log('=== DIAGNOSTICS COMPLETE ===');
+      }
+    }
+    
+    // Auto-run diagnostics on load
+    document.addEventListener('DOMContentLoaded', function() {
+      log('Diagnostic Tool Loaded - Ready for Analysis');
+      runDiagnostics();
+    });
+  </script>
+</body>
+</html>

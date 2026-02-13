@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data Flow Test | Innovaris Tech</title>
+  
+  <style>
+    body {
+      background: linear-gradient(135deg, #1f2937, #111827);
+      color: white;
+      font-family: 'Comic Neue', cursive;
+      padding: 2rem;
+    }
+    
+    .test-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 3px solid var(--neon-cyan);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    
+    .btn {
+      background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      margin: 0.5rem;
+      cursor: pointer;
+      font-family: 'Fredoka One', cursive;
+      transition: all 0.3s ease;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    }
+    
+    .result {
+      background: rgba(0,0,0,0.8);
+      padding: 1rem;
+      border-radius: 10px;
+      margin-top: 1rem;
+      font-family: 'Courier New', monospace;
+      border-left: 4px solid var(--neon-cyan);
+    }
+    
+    .success {
+      border-left-color: var(--neon-green);
+    }
+    
+    .error {
+      border-left-color: var(--neon-pink);
+    }
+    
+    .warning {
+      border-left-color: var(--neon-yellow);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-center mb-4">
+      <i class="bi bi-search"></i> Data Flow Diagnostic Tool
+    </h1>
+    
+    <div class="test-card">
+      <h3>Step 1: Storage Check</h3>
+      <button class="btn" onclick="checkStorage()">
+        <i class="bi bi-database"></i> Check localStorage
+      </button>
+      <div id="storageResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 2: Add Test Message</h3>
+      <button class="btn" onclick="addTestMessage()">
+        <i class="bi bi-plus-circle"></i> Add Test Message
+      </button>
+      <div id="addResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 3: Verify Main Site Read</h3>
+      <button class="btn" onclick="checkMainSiteRead()">
+        <i class="bi bi-eye"></i> Check Main Site Read Access
+      </button>
+      <div id="readResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 4: Test Admin Dashboard Read</h3>
+      <button class="btn" onclick="checkAdminRead()">
+        <i class="bi bi-shield-check"></i> Check Admin Read Access
+      </button>
+      <div id="adminReadResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 5: Cross-Tab Test</h3>
+      <button class="btn" onclick="crossTabTest()">
+        <i class="bi bi-window"></i> Cross-Tab Communication Test
+      </button>
+      <div id="crossTabResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 6: Fix Data Format</h3>
+      <button class="btn" onclick="fixDataFormat()">
+        <i class="bi bi-tools"></i> Fix Data Format for Admin
+      </button>
+      <div id="fixResult" class="result"></div>
+    </div>
+    
+    <div class="test-card">
+      <h3>Step 7: Manual Refresh Test</h3>
+      <button class="btn" onclick="manualRefresh()">
+        <i class="bi bi-arrow-clockwise"></i> Manual Admin Dashboard Refresh
+      </button>
+      <div id="refreshResult" class="result"></div>
+    </div>
+  </div>
+
+  <script>
+    function showResult(elementId, message, type = 'info') {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.className = `result ${type}`;
+        element.innerHTML = message;
+      }
+    }
+    
+    function checkStorage() {
+      try {
+        const keys = Object.keys(localStorage);
+        const submissions = localStorage.getItem('champbucks_submissions');
+        const adminSession = localStorage.getItem('champbucks_admin_session');
+        
+        showResult('storageResult', `
+          <strong>Storage Analysis:</strong><br>
+          Total Keys: ${keys.length}<br>
+          Keys: ${keys.join(', ')}<br><br>
+          <strong>Submissions:</strong> ${submissions ? 'Present (' + submissions.length + ' chars)' : 'Not Present'}<br>
+          <strong>Admin Session:</strong> ${adminSession ? 'Present (' + adminSession.length + ' chars)' : 'Not Present'}
+        `);
+      } catch (error) {
+        showResult('storageResult', `
+          <strong>Storage Error:</strong><br>
+          ${error.message}
+        `, 'error');
+      }
+    }
+    
+    function addTestMessage() {
+      try {
+        const testMessage = {
+          id: Date.now(),
+          name: 'Diagnostic Test User',
+          email: 'test@diagnostics.com',
+          phone: '+27 12 345 6789',
+          service: 'diagnostic',
+          message: 'This is a test message from the diagnostic tool',
+          timestamp: new Date().toISOString(),
+          status: 'unread',
+          starred: false
+        };
+        
+        const messages = JSON.parse(localStorage.getItem('champbucks_submissions') || '[]');
+        messages.push(testMessage);
+        localStorage.setItem('champbucks_submissions', JSON.stringify(messages));
+        
+        showResult('addResult', `
+          <strong>Test Message Added:</strong><br>
+          ID: ${testMessage.id}<br>
+          Name: ${testMessage.name}<br>
+          Email: ${testMessage.email}<br>
+          Total Messages: ${messages.length}
+        `);
+      } catch (error) {
+        showResult('addResult', `
+          <strong>Error Adding Message:</strong><br>
+          ${error.message}
+        `, 'error');
+      }
+    }
+    
+    function checkMainSiteRead() {
+      // Check if main site can read the data we just added
+      setTimeout(() => {
+        const messages = JSON.parse(localStorage.getItem('champbucks_submissions') || '[]');
+        const testMessage = messages.find(msg => msg.email === 'test@diagnostics.com');
+        
+        if (testMessage) {
+          showResult('readResult', `
+            <strong>Main Site Read Test:</strong><br>
+            <span class="success">✅ Main site successfully reads test message</span><br>
+            Test message found with ID: ${testMessage.id}
+          `, 'success');
+        } else {
+          showResult('readResult', `
+            <strong>Main Site Read Test:</strong><br>
+            <span class="error">❌ Main site cannot read test message</span><br>
+            Total messages: ${messages.length}
+          `, 'error');
+        }
+      }, 1000);
+    }
+    
+    function checkAdminRead() {
+      // Check if admin dashboard can read the data
+      setTimeout(() => {
+        const messages = JSON.parse(localStorage.getItem('champbucks_submissions') || '[]');
+        const testMessage = messages.find(msg => msg.email === 'test@diagnostics.com');
+        
+        if (testMessage) {
+          showResult('adminReadResult', `
+            <strong>Admin Read Test:</strong><br>
+            <span class="success">✅ Admin dashboard successfully reads test message</span><br>
+            Test message found with ID: ${testMessage.id}
+          `, 'success');
+        } else {
+          showResult('adminReadResult', `
+            <strong>Admin Read Test:</strong><br>
+            <span class="error">❌ Admin dashboard cannot read test message</span><br>
+            Total messages: ${messages.length}
+          `, 'error');
+        }
+      }, 1000);
+    }
+    
+    function crossTabTest() {
+      showResult('crossTabResult', `
+        <strong>Cross-Tab Test:</strong><br>
+        Open admin dashboard in another tab/window<br>
+        Submit a test message from main site<br>
+        <span class="info">ℹ️ Check if admin dashboard auto-refreshes in all tabs</span>
+      `);
+    }
+    
+    function fixDataFormat() {
+      try {
+        const messages = JSON.parse(localStorage.getItem('champbucks_submissions') || '[]');
+        
+        // Fix message format to match admin dashboard expectations
+        const fixedMessages = messages.map(msg => ({
+          ...msg,
+          // Ensure admin dashboard expects these fields
+          read: msg.read !== undefined ? msg.read : false,
+          starred: msg.starred !== undefined ? msg.starred : false
+        }));
+        
+        localStorage.setItem('champbucks_submissions', JSON.stringify(fixedMessages));
+        
+        showResult('fixResult', `
+          <strong>Data Format Fixed:</strong><br>
+          <span class="success">✅ Messages reformatted for admin compatibility</span><br>
+          Total Messages: ${fixedMessages.length}<br>
+          Added fields: read, starred
+        `);
+      } catch (error) {
+        showResult('fixResult', `
+          <strong>Data Format Error:</strong><br>
+          <span class="error">❌ ${error.message}</span>
+        `, 'error');
+      }
+    }
+    
+    function manualRefresh() {
+      showResult('refreshResult', `
+        <strong>Manual Refresh:</strong><br>
+        Manually refresh the admin dashboard page<br>
+        <span class="info">🔄 Check if new messages appear</span>
+      `);
+    }
+    
+    // Auto-run storage check on load
+    window.addEventListener('load', checkStorage);
+  </script>
+</body>
+</html>

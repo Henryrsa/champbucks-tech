@@ -1,0 +1,744 @@
+/* ============================
+   Champbucks - ADMIN THEME! 🎨
+   Matching cartoon theme with professional admin features
+   ============================ */
+
+/* Import main styles */
+@import url('../style.css');
+
+/* CSS Variables - Admin Theme */
+:root {
+  /* Admin-specific colors */
+  --admin-primary: #6366f1;
+  --admin-secondary: #8b5cf6;
+  --admin-success: #10b981;
+  --admin-danger: #ef4444;
+  --admin-warning: #f59e0b;
+  --admin-dark: #1f2937;
+  --admin-light: #f9fafb;
+  
+  /* Keep original neon colors for theme consistency */
+  --neon-pink: #ff006e;
+  --neon-green: #39ff14;
+  --neon-yellow: #fff01f;
+  --neon-cyan: #00ffff;
+  --neon-purple: #bc13fe;
+  --neon-orange: #ff6b35;
+}
+
+/* Base Admin Styles */
+.admin-body {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  color: #f9fafb;
+  font-family: 'Comic Neue', cursive;
+  min-height: 100vh;
+}
+
+/* ============================
+   LOGIN PAGE STYLES! 🔐
+   ============================ */
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container .floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: floatShape 20s ease-in-out infinite;
+}
+
+.shape-pink {
+  width: 150px;
+  height: 150px;
+  background: var(--neon-pink);
+  top: 10%;
+  left: 10%;
+}
+
+.shape-cyan {
+  width: 100px;
+  height: 100px;
+  background: var(--neon-cyan);
+  top: 70%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape-green {
+  width: 80px;
+  height: 80px;
+  background: var(--neon-green);
+  bottom: 20%;
+  left: 20%;
+  animation-delay: 4s;
+}
+
+@keyframes floatShape {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(30px, -30px) rotate(90deg); }
+  50% { transform: translate(-20px, 20px) rotate(180deg); }
+  75% { transform: translate(20px, 10px) rotate(270deg); }
+}
+
+.login-card {
+  background: white;
+  border-radius: 40px;
+  border: 8px solid var(--neon-cyan);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  padding: 3rem;
+  max-width: 450px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  animation: slideIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.login-mascot {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-mascot .robot-head {
+  width: 80px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+  border-radius: 20px;
+  border: 4px solid white;
+  box-shadow: 0 8px 0px var(--neon-purple);
+  margin: 0 auto;
+  position: relative;
+}
+
+.login-mascot .robot-eye {
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 50%;
+  border: 2px solid var(--neon-purple);
+  position: absolute;
+  top: 20px;
+  animation: blink 4s ease-in-out infinite;
+}
+
+.login-mascot .robot-eye.left { left: 15px; }
+.login-mascot .robot-eye.right { right: 15px; }
+
+.login-mascot .robot-body {
+  width: 60px;
+  height: 40px;
+  background: linear-gradient(135deg, var(--neon-yellow), var(--neon-orange));
+  border-radius: 15px;
+  border: 4px solid white;
+  box-shadow: 0 6px 0px var(--neon-purple);
+  margin: -5px auto 0;
+  position: relative;
+}
+
+.login-mascot .robot-screen {
+  width: 40px;
+  height: 25px;
+  background: #1f2937;
+  border-radius: 8px;
+  border: 2px solid white;
+  margin: 8px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+@keyframes blink {
+  0%, 45%, 55%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+
+.login-content {
+  text-align: center;
+}
+
+.login-title {
+  font-family: 'Fredoka One', cursive;
+  color: var(--neon-purple);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 0px var(--neon-cyan);
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+.login-subtitle {
+  color: #6b7280;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.security-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-radius: 20px;
+  border: 3px solid var(--neon-yellow);
+}
+
+/* ============================
+   ADMIN NAVIGATION! 🚀
+   ============================ */
+.admin-nav {
+  background: linear-gradient(135deg, var(--admin-dark), #111827);
+  border-bottom: 4px solid var(--neon-cyan);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.admin-nav .nav-brand {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.5rem;
+  color: var(--neon-cyan);
+  text-shadow: 2px 2px 0px var(--neon-pink);
+  animation: wiggle 4s ease-in-out infinite;
+}
+
+.nav-actions .new-messages-indicator {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-actions .new-messages-indicator:hover {
+  transform: scale(1.1);
+}
+
+.nav-actions .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--admin-danger);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border: 2px solid var(--neon-cyan);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Admin Buttons */
+.btn-admin {
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+  color: white;
+  border: 3px solid var(--neon-cyan);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-admin:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--admin-secondary), var(--admin-primary));
+}
+
+.btn-admin:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.btn-outline-admin {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: 3px solid var(--neon-cyan);
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.btn-outline-admin:hover {
+  background: var(--neon-cyan);
+  color: var(--admin-dark);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================
+   DASHBOARD CONTAINER! 📊
+   ============================ */
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Admin Tabs */
+.admin-tabs {
+  border: none;
+  margin-bottom: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 30px;
+  padding: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.admin-tabs .nav-link {
+  background: transparent;
+  color: var(--neon-cyan);
+  border: none;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.admin-tabs .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.admin-tabs .nav-link.active {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  transform: scale(1.05);
+}
+
+.admin-tabs .nav-link .badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: var(--admin-danger);
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.75rem;
+  border: 2px solid white;
+}
+
+.admin-tab-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 2rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* ============================
+   MESSAGES CONTROLS! 📧
+   ============================ */
+.messages-controls {
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  border-radius: 25px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 4px solid var(--neon-cyan);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.messages-controls .fun-input {
+  margin-bottom: 0;
+}
+
+.messages-controls .form-control,
+.messages-controls .form-select {
+  background: white;
+  border: 3px solid var(--neon-purple);
+  border-radius: 20px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1f2937;
+  transition: all 0.3s ease;
+}
+
+.messages-controls .form-control:focus,
+.messages-controls .form-select:focus {
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 0 4px rgba(0, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ============================
+   ADMIN TABLE! 📊
+   ============================ */
+.messages-table-container {
+  background: white;
+  border-radius: 25px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.admin-table {
+  margin-bottom: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.admin-table thead th {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  font-family: 'Fredoka One', cursive;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 1rem 0.75rem;
+  border: none;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin-table thead th:hover {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  transform: scale(1.02);
+}
+
+.admin-table tbody tr {
+  border-bottom: 3px solid #f3f4f6;
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease-out;
+}
+
+.admin-table tbody tr:hover {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  transform: scale(1.01);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-table tbody td {
+  padding: 1rem 0.75rem;
+  vertical-align: middle;
+  font-weight: 700;
+  color: #374151;
+}
+
+.admin-table .status-indicator {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.status-indicator.unread {
+  background: var(--admin-danger);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.status-indicator.read {
+  background: var(--admin-success);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+.message-preview {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Pagination */
+.admin-pagination {
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+.admin-pagination .page-link {
+  background: white;
+  color: var(--neon-purple);
+  border: 3px solid var(--neon-cyan);
+  border-radius: 15px;
+  margin: 0 0.25rem;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.admin-pagination .page-link:hover {
+  background: var(--neon-cyan);
+  color: var(--admin-dark);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.admin-pagination .page-item.active .page-link {
+  background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+  color: white;
+  border-color: var(--neon-pink);
+  transform: scale(1.1);
+}
+
+/* ============================
+   STATISTICS CARDS! 📊
+   ============================ */
+.stat-card {
+  background: white;
+  border-radius: 30px;
+  padding: 2rem;
+  border: 4px solid var(--neon-cyan);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.stat-card:hover {
+  transform: translateY(-10px) rotate(2deg);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  border-color: var(--neon-pink);
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 4px 4px 0px var(--neon-purple);
+  flex-shrink: 0;
+}
+
+.stat-content h3 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.5rem;
+  color: var(--neon-purple);
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 0px var(--neon-yellow);
+}
+
+.stat-content p {
+  color: #6b7280;
+  font-weight: 700;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ============================
+   CHARTS! 📈
+   ============================ */
+.chart-card {
+  background: white;
+  border-radius: 30px;
+  padding: 2rem;
+  border: 4px solid var(--neon-purple);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.chart-card h4 {
+  font-family: 'Fredoka One', cursive;
+  color: var(--neon-purple);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 0px var(--neon-cyan);
+}
+
+/* ============================
+   SETTINGS! ⚙️
+   ============================ */
+.settings-container {
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+  border-radius: 25px;
+  padding: 2rem;
+}
+
+/* ============================
+   MODALS! 🎭
+   ============================ */
+.modal-content {
+  background: white;
+  border-radius: 30px;
+  border: 5px solid var(--neon-cyan);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--neon-purple), var(--neon-pink));
+  color: white;
+  border-radius: 25px 25px 0 0;
+  border: none;
+  font-family: 'Fredoka One', cursive;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.3);
+}
+
+.modal-body {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f9fafb, #f3f4f6);
+}
+
+/* ============================
+   TOAST NOTIFICATIONS! 🎉
+   ============================ */
+.admin-toast {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  display: none;
+  z-index: 10000;
+  max-width: 400px;
+  font-family: 'Fredoka One', cursive;
+  animation: slideIn 0.5s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.admin-toast.success {
+  background: linear-gradient(135deg, var(--admin-success), #059669);
+  border: 4px solid var(--neon-green);
+}
+
+.admin-toast.error {
+  background: linear-gradient(135deg, var(--admin-danger), #dc2626);
+  border: 4px solid var(--neon-orange);
+}
+
+.admin-toast.info {
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-secondary));
+  border: 4px solid var(--neon-cyan);
+}
+
+/* ============================
+   RESPONSIVE! 📱
+   ============================ */
+@media (max-width: 991.98px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  
+  .admin-tabs .nav-link {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .messages-controls .row {
+    gap: 1rem;
+  }
+  
+  .stat-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .login-card {
+    margin: 2rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .nav-actions {
+    gap: 1rem;
+  }
+  
+  .admin-nav .nav-brand {
+    font-size: 1.2rem;
+  }
+  
+  .admin-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .admin-tab-content {
+    padding: 1rem;
+  }
+  
+  .messages-controls {
+    padding: 1rem;
+  }
+  
+  .stat-card {
+    padding: 1.5rem;
+  }
+  
+  .chart-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .dashboard-container {
+    padding: 0.5rem;
+  }
+  
+  .messages-table-container {
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  
+  .admin-table {
+    font-size: 0.875rem;
+  }
+  
+  .stat-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+  
+  .stat-content h3 {
+    font-size: 2rem;
+  }
+  
+  .btn-admin,
+  .btn-outline-admin {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Animations */
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
